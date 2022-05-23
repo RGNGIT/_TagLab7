@@ -15,26 +15,31 @@ public class Database
     public void AddStatus(string Status)
     {
         SqlCommand cmd = new SqlCommand($"INSERT INTO status (Name) VALUES ('{Status}')", connection);
+        cmd.ExecuteNonQuery();
     }
 
     public void AddJur(string Name, string Phone)
     {
         SqlCommand cmd = new SqlCommand($"INSERT INTO jur (Name, Phone) VALUES ('{Name}', '{Phone}')", connection);
+        cmd.ExecuteNonQuery();
     }
 
     public void AddPhys(string Name, string Surname, string Patr)
     {
         SqlCommand cmd = new SqlCommand($"INSERT INTO phys (Name, Surname, Patr) VALUES ('{Name}', '{Surname}', '{Patr}')", connection);
+        cmd.ExecuteNonQuery();
     }
 
     public void AddAddress(string City, string Street, string Number)
     {
         SqlCommand cmd = new SqlCommand($"INSERT INTO address (City, Street, Number) VALUES ('{City}', '{Street}', '{Number}')", connection);
+        // cmd.ExecuteNonQuery();
     }
 
     public void AddOffice(string Name, int AddrKey)
     {
         SqlCommand cmd = new SqlCommand($"INSERT INTO office (Name, AddrKey) VALUES ('{Name}', {AddrKey})", connection);
+        cmd.ExecuteNonQuery();
     }
 
     public void Selector(string Table, string Conditions)
