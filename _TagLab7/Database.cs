@@ -33,7 +33,7 @@ public class Database
     public void AddAddress(string Name, string Description, string Category, int Price)
     {
         SqlCommand cmd = new SqlCommand($"INSERT INTO Bilet (Name, Description, Category,Price) VALUES ('{Name}', '{Description}', '{Category}','{Price}')", connection);
-        // cmd.ExecuteNonQuery();
+        cmd.ExecuteNonQuery();
     }
 
     public void AddOffice(string Name, int AddrKey)

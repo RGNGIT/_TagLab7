@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseStaticFiles();
 
-string Credentials = "Data Source=DESKTOP-PBKFIIP; Initial Catalog = TagBD; User ID = localhost; Password = ";
+string Credentials = "Server=localhost; Integrated Security=SSPI;Database=TagBD;";
 
 app.Map("/addAddr", appBuilder =>
 {
