@@ -30,9 +30,9 @@ public class Database
         cmd.ExecuteNonQuery();
     }
 
-    public void AddAddress(string City, string Street, string Number)
+    public void AddAddress(string Name, string Description, string Category, int Price)
     {
-        SqlCommand cmd = new SqlCommand($"INSERT INTO address (City, Street, Number) VALUES ('{City}', '{Street}', '{Number}')", connection);
+        SqlCommand cmd = new SqlCommand($"INSERT INTO Bilet (Name, Description, Category,Price) VALUES ('{Name}', '{Description}', '{Category}','{Price}')", connection);
         // cmd.ExecuteNonQuery();
     }
 

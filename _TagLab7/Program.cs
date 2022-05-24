@@ -3,19 +3,20 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseStaticFiles();
 
-string Credentials = "Data Source=DESKTOP-JHJ14RM; Initial Catalog = rent; User ID = rgn; Password = 12345678";
+string Credentials = "Data Source=DESKTOP-PBKFIIP; Initial Catalog = TagBD; User ID = localhost; Password = ";
 
 app.Map("/addAddr", appBuilder =>
 {
 
     appBuilder.Use(async (context, next) =>
     {
-        string City = context.Request.Query["City"].ToString();
-        string Street = context.Request.Query["Street"].ToString();
-        string Number = context.Request.Query["Number"].ToString();
+        string Name = context.Request.Query["Name"].ToString();
+        string Description = context.Request.Query["Description"].ToString();
+        string Category = context.Request.Query["Category"].ToString();
+        int Price = Convert.ToInt32(context.Request.Query["Price"]);
         Console.WriteLine(Credentials);
         Database dbInstanse = new Database(Credentials);
-        dbInstanse.AddAddress(City, Street, Number);
+        dbInstanse.AddAddress(Name, Description, Category, Price);
         await next(); 
     });
 
